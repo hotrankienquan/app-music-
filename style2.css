@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;900&display=swap');
+:root {
+  --primary-color: #ec1f55;
+  --text-color: #333;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color:#eee;
+}
+.player {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+/* xử lí nút pause và nút play */
+.player .icon-pause {
+  display: none;
+}
+.player.playing .icon-pause {
+  display: inline-block;
+}
+.player.playing .icon-play {
+  display: none;
+}
+
+
+.dashboard {
+  padding: 16px 16px 14px;
+  position: fixed;
+  top: 0;
+  /* width: 100% của thẻ chứa nó là tag player */
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebebeb;
+}
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+header h4 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+header h2 {
+  color: var(--text-color);
+  font-size: 20px;
+}
+.cd {
+  /* block sẽ chiếm hết chiều ngang */
+  display: block;
+  width: 200px;
+  
+  margin: auto;
+}
+.cd-thumb {
+  /* kh có padding thì ảnh bị mất */
+  padding-top: 100%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0 10px 0;
+}
+.control .btn {
+  color: #666;
+  padding: 18px;
+  font-size: 18px;
+}
+.control .btn:hover {
+  opacity:0.2;
+  cursor:pointer;
+  transition:all 0.4s ease-in-out;
+  
+  
+}
+
+.control .btn.active {
+  color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+  width: 55px;
+  height: 55px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-random.active,
+.btn-repeat.active {
+  color: var(--primary-color);
+}
+.progress {
+  width: 100%;
+  /* The overflow property specifies whether to 
+  clip content or to add scrollbars when 
+  an element's content is too big to fit in
+   a specified area. */
+  overflow: hidden;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.progress:hover::-webkit-slider-thumb {
+  background: var(--primary-color);
+  box-shadow: -500px 0 0 500px var(--primary-color);
+}
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 12px;
+  height: 6px;
+  background: var(--primary-color);
+    /* A div element with a shadow.
+    The first value is the horizontal offset and 
+    the second value is the vertical offset.
+    The shadow color will be inherited from the text
+    color. */
+    /* box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit; */
+  box-shadow: -500px 0 0 500px var(--primary-color);
+}
+.playlist {
+  padding: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 395px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.song {
+  display: flex;
+  align-items: center;
+  /* nhớ margin để tách các song ko bị dính nhau */
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+}
+.song.active {
+  background-color: var(--primary-color);
+}
+.song:active {
+  opacity: 0.8;
+}
+.song.active .title,
+.song.active .author,
+.song.active .option {
+  color: #fff;
+}
+/* .song .thumb là ảnh nhỏ ở dưới playlist */
+.song .thumb {
+  width: 46px;
+  height: 46px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+.song .title {
+  margin-bottom: 4px;
+  font-size: 18px;
+  color: var(--text-color);
+}
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
+
+
+
